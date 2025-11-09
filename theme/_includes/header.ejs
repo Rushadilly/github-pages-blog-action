@@ -21,6 +21,8 @@
 
     <link rel="stylesheet" href="<%- `${siteConfig.baseUrl || ''}/` %>css/normalize.css"/>
     <link rel="stylesheet" href="<%- `${siteConfig.baseUrl || ''}/` %>css/theme.css"/>
+    
+    <link rel="icon" href="<%- `${siteConfig.baseUrl || ''}/` %>favicon.ico"/>
 </head>
 <body>
 <nav class="nav">
@@ -42,9 +44,5 @@
                 class="<%= info.cls %>"><%= info.label %></a>
             <% } %>
         <% }); %>
-
-        <!-- <a target="_blank" href="https://github.com/<%- siteConfig.social.github %>" class="link-github">GitHub</a> -->
-        <!-- <a target="_blank" href="https://twitter.com/<%- siteConfig.social.twitter %>" class="link-twitter">Twitter</a> -->
-        <!-- <a href="mailto:<%- siteConfig.owner.email %>" class="link-email">Email</a> -->
     </div>
 </nav>
