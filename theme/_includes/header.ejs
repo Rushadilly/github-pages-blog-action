@@ -37,7 +37,7 @@
             <% if (!info) return; /* skip unknown keys */ %>
 
             <% if (platform === 'email') { %>
-                <a href="<%= info.base %><%= siteConfig.owner.email %>" class="<%= info.cls %>"><%= info.label %></a>
+                <a href="<%= info.base %>" class="<%= info.cls %>"><%= info.label %></a>
             <% } else { %>
                 <a target="_blank"
                 href="<%= info.base %>"
