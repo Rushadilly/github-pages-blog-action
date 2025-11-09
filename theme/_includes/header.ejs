@@ -29,8 +29,22 @@
         <a href="/about">About</a>
     </div>
     <div class="nav__right">
-        <a target="_blank" href="https://github.com/<%- siteConfig.social.github %>" class="link-github">GitHub</a>
-        <a target="_blank" href="https://twitter.com/<%- siteConfig.social.twitter %>" class="link-twitter">Twitter</a>
-        <a href="mailto:<%- siteConfig.owner.email %>" class="link-email">Email</a>
+
+        <% Object.keys(siteConfig.social || {}).forEach(platform => { %>
+            <% const info = platformInfo[platform]; %>
+            <% if (!info) return; /* skip unknown keys */ %>
+
+            <% if (platform === 'email') { %>
+                <a href="<%= info.base %><%= siteConfig.owner.email %>" class="<%= info.cls %>"><%= info.label %></a>
+            <% } else { %>
+                <a target="_blank"
+                href="<%= info.base %>/<%= siteConfig.social[platform] %>"
+                class="<%= info.cls %>"><%= info.label %></a>
+            <% } %>
+        <% }); %>
+
+        <!-- <a target="_blank" href="https://github.com/<%- siteConfig.social.github %>" class="link-github">GitHub</a> -->
+        <!-- <a target="_blank" href="https://twitter.com/<%- siteConfig.social.twitter %>" class="link-twitter">Twitter</a> -->
+        <!-- <a href="mailto:<%- siteConfig.owner.email %>" class="link-email">Email</a> -->
     </div>
 </nav>
