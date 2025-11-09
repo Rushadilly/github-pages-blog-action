@@ -31,7 +31,7 @@
     <div class="nav__right">
 
         <% Object.keys(siteConfig.social || {}).forEach(platform => { %>
-            <% const info = platformInfo[platform]; %>
+            <% const info = siteConfig.social[platform]; %>
             <% if (!info) return; /* skip unknown keys */ %>
 
             <% if (platform === 'email') { %>
