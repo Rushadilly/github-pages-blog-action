@@ -27,22 +27,30 @@
 <body>
 <nav class="nav">
     <div class="nav__left">
-        <a href="<%- `${siteConfig.baseUrl || ''}/` %>">Home</a>
-        <a href="<%- `${siteConfig.baseUrl || ''}/` %>about">About</a>
+        <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
+        <a 
+            href="<%- `${siteConfig.baseUrl || ''}/` %>"
+        >
+            Home
+        </a><a
+            href="<%- `${siteConfig.baseUrl || ''}/` %>
+            about">
+            About
+        </a>
     </div>
     <div class="nav__right">
-
         <% Object.keys(siteConfig.social || {}).forEach(platform => { %>
             <% const info = siteConfig.social[platform]; %>
             <% if (!info) return; /* skip unknown keys */ %>
-
-            <% if (platform === 'email') { %>
-                <a href="<%= info.base %>" class="<%= info.cls %>"><%= info.label %></a>
-            <% } else { %>
-                <a target="_blank"
+            <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
+            <% if (platform === 'email') { %><a
                 href="<%= info.base %>"
-                class="<%= info.cls %>"><%= info.label %></a>
-            <% } %>
+                class="<%= info.cls %>">
+                    <%= info.label %>
+            </a><% } else { %><a target="_blank"
+                href="<%= info.base %>"
+                class="<%= info.cls %>"><%= info.label %>
+            </a><% } %>
         <% }); %>
     </div>
 </nav>
