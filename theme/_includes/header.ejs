@@ -46,10 +46,10 @@
             <% if (platform === 'email') { %><a
                 href="<%= info.base %>"
                 class="<%= info.cls %>">
-                    <%= info.label %>
+                    <%= info.content %>
             </a><% } else { %><a target="_blank"
                 href="<%= info.base %>"
-                class="<%= info.cls %>"><%= info.label %>
+                class="<%= info.cls %>"><%- info.content %>
             </a><% } %>
         <% }); %>
     </div>
