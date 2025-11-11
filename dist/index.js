@@ -321,7 +321,7 @@ function prepareTheme(configuration) {
                         fs_extra_1.default.ensureDirSync(path_1.default.join(outputDir, nestedPostDir));
                     }
 
-                    const siteConfig = require(path.join(configuration.repoPath, './site.json'));
+                    const siteConfig = require(path_1.default.join(configuration.repoPath, './site.json'));
                     const postMeta = {
                         title,
                         date,
