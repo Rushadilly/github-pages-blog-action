@@ -45,12 +45,11 @@
             <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
             <% if (platform === 'email') { %><a
                 href="<%= info.base %>"
-                class="<%= info.cls %>">
-                    <%= info.content %>
-            </a><% } else { %><a target="_blank"
+                class="<%= info.cls %>"
+            ><%- info.content %></a><% } else { %><a target="_blank"
                 href="<%= info.base %>"
-                class="<%= info.cls %>"><%- info.content %>
-            </a><% } %>
+                class="<%= info.cls %>"
+            ><%- info.content %></a><% } %>
         <% }); %>
     </div>
 </nav>
