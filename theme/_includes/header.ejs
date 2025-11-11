@@ -39,10 +39,10 @@
         </a>
     </div>
     <div class="nav__right">
+        <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
         <% Object.keys(siteConfig.social || {}).forEach(platform => { %>
             <% const info = siteConfig.social[platform]; %>
             <% if (!info) return; /* skip unknown keys */ %>
-            <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
             <% if (platform === 'email') { %><a
                 href="<%= info.base %>"
                 class="<%= info.cls %>"
