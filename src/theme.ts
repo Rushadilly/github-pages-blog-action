@@ -86,6 +86,7 @@ export async function prepareTheme(configuration: ConfigurationType) {
     info('Preparing blog posts');
     const postFiles = fs.readdirSync(postsDir);
     const posts: PostType[] = [];
+    const siteConfig: SiteConfigType = require(path.join(configuration.repoPath, './site.json'));
 
     for (let contentFile of postFiles) {
       const contentFilePath = path.join(postsDir, contentFile);
@@ -114,7 +115,7 @@ export async function prepareTheme(configuration: ConfigurationType) {
       const postMeta = {
         title,
         date,
-        permalink: path.join('/', nestedPostDir, fileName),
+        permalink: path.join('/', siteConfig.baseUrl, nestedPostDir, fileName),
         externalUrl,
         html: postHtml
       };
