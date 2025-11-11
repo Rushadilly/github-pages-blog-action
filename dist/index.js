@@ -320,10 +320,12 @@ function prepareTheme(configuration) {
                     if (nestedPostDir) {
                         fs_extra_1.default.ensureDirSync(path_1.default.join(outputDir, nestedPostDir));
                     }
+
+                    const siteConfig = require(path.join(configuration.repoPath, './site.json'));
                     const postMeta = {
                         title,
                         date,
-                        permalink: path_1.default.join('/', nestedPostDir, fileName),
+                        permalink: path_1.default.join('/', siteConfig.baseUrl, nestedPostDir, fileName),
                         externalUrl,
                         html: postHtml
                     };
