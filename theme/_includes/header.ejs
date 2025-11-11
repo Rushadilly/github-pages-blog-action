@@ -43,13 +43,7 @@
         <% Object.keys(siteConfig.social || {}).forEach(platform => { %>
             <% const info = siteConfig.social[platform]; %>
             <% if (!info) return; /* skip unknown keys */ %>
-            <% if (platform === 'email') { %><a
-                href="<%= info.base %>"
-                class="<%= info.cls %>"
-            ><%- info.content %></a><% } else { %><a target="_blank"
-                href="<%= info.base %>"
-                class="<%= info.cls %>"
-            ><%- info.content %></a><% } %>
+            <% if (platform === 'email') { %><a href="<%= info.base %>" class="<%= info.cls %>" ><%- info.content %></a><% } else { %><a target="_blank" href="<%= info.base %>" class="<%= info.cls %>"><%- info.content %></a><% } %>
         <% }); %>
     </div>
 </nav>
