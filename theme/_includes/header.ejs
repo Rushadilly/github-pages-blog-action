@@ -27,9 +27,17 @@
 <body>
 <nav class="nav">
     <div class="nav__left">
-        <!-- Syntax is jacked up here because there needs to be no whitespace between the tags -->
-        <a href="<%- `${siteConfig.baseUrl || ''}/` %>">Home</a><a
-            href="<%- `${siteConfig.baseUrl || ''}/about` %>">About</a>
+        <% Object.entries(siteConfig.navigation || {}).forEach(([platform, info]) => { %>
+            <% if (!info) return; %>
+            <% 
+                // Build attribute string from all keys except "body"
+                const attrs = Object.entries(info)
+                    .filter(([key]) => key !== 'body')
+                    .map(([key, value]) => `${key}="${value}"`)
+                    .join(' ');
+            %>
+            <a <%- attrs %>><%- info.body %></a>
+        <% }); %>
     </div>
 
     <div class="nav__right">
